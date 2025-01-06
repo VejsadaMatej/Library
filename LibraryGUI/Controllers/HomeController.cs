@@ -1,32 +1,21 @@
-using System.Diagnostics;
-using LibraryGUI.Models;
+using LibraryGUI.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryGUI.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly HttpClient _httpClient;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IHttpClientFactory httpClientFactory)
         {
-            _logger = logger;
+            _httpClient = httpClientFactory.CreateClient("LibraryAPI");
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var statistics = await _httpClient.GetFromJsonAsync<StatisticsViewModel>("/api/statistics");
+            return View(statistics);
         }
     }
 }

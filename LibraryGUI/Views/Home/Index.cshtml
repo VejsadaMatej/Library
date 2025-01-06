@@ -1,8 +1,11 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<h1>Dashboard</h1>
+<p>Celkový počet knih: @Model.TotalBooks</p>
+<p>Počet výpůjček: @Model.TotalBorrows</p>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Rozložení knih podle kategorií</h2>
+<ul>
+    @foreach (var category in Model.CategoryCounts)
+    {
+        <li>@category.Category: @category.Count</li>
+    }
+</ul>

@@ -32,3 +32,4 @@ D:\VisualStudio\LibraryGUI\LibraryGUI\obj\Debug\net8.0\refint\LibraryGUI.dll
 D:\VisualStudio\LibraryGUI\LibraryGUI\obj\Debug\net8.0\LibraryGUI.pdb
 D:\VisualStudio\LibraryGUI\LibraryGUI\obj\Debug\net8.0\LibraryGUI.genruntimeconfig.cache
 D:\VisualStudio\LibraryGUI\LibraryGUI\obj\Debug\net8.0\ref\LibraryGUI.dll
+D:\VisualStudio\LibraryGUI\LibraryGUI\obj\Debug\net8.0\LibraryGUI.sourcelink.json

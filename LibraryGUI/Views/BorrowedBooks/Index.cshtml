@@ -1,0 +1,35 @@
+﻿@using LibraryGUI.ViewModels
+@model List<BorrowedBook>
+
+<h1>Seznam výpůjček</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Název knihy</th>
+            <th>Autor</th>
+            <th>Uživatel</th>
+            <th>Datum výpůjčky</th>
+            <th>Akce</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var borrow in Model)
+        {
+            <tr>
+                <td>@borrow.BookTitle</td>
+                <td>@borrow.Author</td>
+                <td>@borrow.UserName</td>
+                <td>@borrow.BorrowDate.ToShortDateString()</td>
+                <td>
+                    <form method="post" action="/BorrowedBooks/Return/@borrow.BorrowId" style="display:inline;">
+                        <button type="submit">Vrátit</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/BorrowedBooks/Create">Nová výpůjčka</a>
+<a href="/BorrowedBooks/History">Historie výpůjček</a>

@@ -1,0 +1,15 @@
+﻿@using LibraryGUI.ViewModels
+@model Book
+
+<h1>Detail knihy</h1>
+
+<p><strong>Název:</strong> @Model.Title</p>
+<p><strong>Autor:</strong> @Model.Author</p>
+<p><strong>Kategorie:</strong> @Model.Category</p>
+<p><strong>Popis:</strong> @Model.Description</p>
+<p><strong>ISBN:</strong> @Model.ISBN</p>
+<p><strong>Umístění:</strong> @Model.Location</p>
+<p><strong>Status:</strong> @Model.Status</p>
+
+<a href="/Books/Edit/@Model.BookId">Upravit</a>
+<a href="/Books">Zpět</a>

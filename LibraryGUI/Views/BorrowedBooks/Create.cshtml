@@ -1,0 +1,28 @@
+﻿@using LibraryGUI.ViewModels
+@model BorrowedBook
+
+<h1>Nová výpůjčka</h1>
+
+<form method="post">
+    <div>
+        <label for="BookId">Kniha</label>
+        <select id="BookId" name="BookId">
+            @foreach (var book in ViewBag.Books)
+            {
+                <option value="@book.BookId">@book.Title</option>
+            }
+        </select>
+    </div>
+    <div>
+        <label for="UserId">Uživatel</label>
+        <select id="UserId" name="UserId">
+            @foreach (var user in ViewBag.Users)
+            {
+                <option value="@user.UserId">@user.Name</option>
+            }
+        </select>
+    </div>
+    <button type="submit">Vytvořit</button>
+</form>
+
+<a href="/BorrowedBooks">Zpět</a>

@@ -1,0 +1,39 @@
+﻿@using LibraryGUI.ViewModels
+@model List<Book>
+
+<h1>Seznam knih</h1>
+
+<form method="get">
+    <input type="text" name="search" placeholder="Vyhledat..." value="@ViewContext.HttpContext.Request.Query["search"]" />
+    <button type="submit">Hledat</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Název</th>
+            <th>Autor</th>
+            <th>Kategorie</th>
+            <th>Akce</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.Category</td>
+                <td>
+                    <a href="/Books/Details/@book.BookId">Detail</a> |
+                    <a href="/Books/Edit/@book.BookId">Upravit</a> |
+                    <form method="post" action="/Books/Delete/@book.BookId" style="display:inline;">
+                        <button type="submit">Smazat</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Books/Create">Přidat knihu</a>
